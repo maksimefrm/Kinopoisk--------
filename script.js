@@ -139,3 +139,4 @@ function showSimilarMovies(foundMovies){
         </div>`
     })
 }
+
