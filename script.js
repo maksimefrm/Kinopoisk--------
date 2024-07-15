@@ -56,12 +56,12 @@ let searchBtn = document.querySelector(".search button")
 searchBtn.addEventListener("click", searchMovie)
 
 let message = document.querySelector(".message")
-let loader = document.querySelector(".loader")
+let loading = document.querySelector(".linear-loading")
 
 async function searchMovie() {
 
     message.style.display = "none"
-    loader.style.display = "block"
+    loading.style.display = "block"
 
     let search = document.getElementsByName("search")[0].value
     let movie = await sendRequest("http://www.omdbapi.com/", "GET", {
@@ -69,7 +69,8 @@ async function searchMovie() {
     "t": search,
 })
 
-    loader.style.displаy = "none"
+    loading.style.display = "none"
+
     if(movie.Response == "False") {
         message.innerHTML = movie.Error;
         message.style.display = "block"

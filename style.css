@@ -163,23 +163,44 @@ main.rounded {
     top: 5px; 
 }
 
-.loader {
-    height: 8px;
-    --c:no-repeat linear-gradient(var(--color)0 0);
-    background: var(--c), var(--c), white;
-    background-size: 60% 100%;
-    animation: load 3s infinite;
+.linear-loading {
+    height: 4px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+    &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 6px;
+    background-color: white;
+    width: 50%;
+    top: -1px;
+    left: 0;
+    animation: slide-away 3s infinite linear;
+    }
+    &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 6px;
+    background-color: orange;
+    width: 25%;
+    top: -1px;
+    left: 0;
+    animation: slide-away 2s infinite linear;
+  }
+}
+@keyframes slide-away {
+    0%   {transform: translate(-100%,0)}
+    100% {transform: translate(400%,0)}
 }
 .message {
     display: none;
     background-color: rgb(221, 113, 113, 0.5);
 }
-@keyframes load {
-    0% {background-position: -150% 0,-150% 0}
-    66% {background-position: 250% 0,-150% 0}
-    100% {background-position: 250% 0,250% 0}
-}
 
-main {
+
+main, .linear-loading {
     display: none;
 }
