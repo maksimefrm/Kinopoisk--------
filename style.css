@@ -19,7 +19,7 @@
 body {
     background-image: url(./images/background.jpg);
     padding: 20px;
-    animation: bg_animation 1000s infinite linear;
+    animation: imgAnimation 1000s infinite linear;
     color: var(--text-color)
 }
 body {
@@ -32,7 +32,7 @@ body.dark {
     --color1: rgba(130, 130, 130, 0.5);
     --color2: rgba(100, 100, 100, 0.8);
 }
-@keyframes bg-animation {
+@keyframe imgAnimation {
     0%{
         background-position: left top;
     }
@@ -114,6 +114,7 @@ main.rounded {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
+    position: relative;
 }
 .movie {
     flex-direction: row;
@@ -156,13 +157,25 @@ main.rounded {
     background-color: rgb(210, 210, 210, 0.7)
 }
 .favStar {
-    display: flex;
-    padding: 3px;
-    position: absolute; 
-    right: 5px;
-    top: 5px; 
-}
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
 
+    background-color: var(--color1);
+    background-image: url(./images/favBtn.svg);
+    background-repeat: no-repeat;
+    background-size: 35px;
+
+    position: absolute; 
+    top: 20px;
+    left: 20px;
+
+    filter: invert(1);
+    background-position: top 5px left 5px;
+}
+.favStar.active {
+    filter: invert(21%) sepia(86%) saturate(2811%) hue-rotate(1deg) brightness(103%) contrast(101%);
+}
 .linear-loading {
     height: 4px;
     position: relative;
